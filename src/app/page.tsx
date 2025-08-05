@@ -50,7 +50,7 @@ export default function Home() {
 
             {/* Sub-Headline */}
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We handle the research chaos, beat writer's block with AI, and structure your ideas into a professional book—so you can focus on what you do best:{' '}
+              We handle the research chaos, beat writer&apos;s block with AI, and structure your ideas into a professional book—so you can focus on what you do best:{' '}
               <span className="font-semibold text-gray-800">sharing your knowledge with the world.</span>
             </p>
 
@@ -84,9 +84,9 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">You're In!</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">You&apos;re In!</h3>
                 <p className="text-gray-600">
-                  We'll notify you as soon as Bookify is ready.
+                  We&apos;ll notify you as soon as Bookify is ready.
                 </p>
               </div>
             )}
@@ -127,7 +127,7 @@ export default function Home() {
                 Why Smart People Struggle to Write Books
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                You're brilliant, but these common obstacles keep your knowledge trapped in your head
+                You&apos;re brilliant, but these common obstacles keep your knowledge trapped in your head
               </p>
             </div>
             
@@ -152,7 +152,7 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-gray-600 leading-relaxed">
-                    You have 47 browser tabs open, 12 different research documents, and still feel like you haven't found "the perfect source"
+                    You have 47 browser tabs open, 12 different research documents, and still feel like you haven&apos;t found &ldquo;the perfect source&rdquo;
                   </p>
                 </div>
               </div>
@@ -232,7 +232,7 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-gray-600 leading-relaxed">
-                    Rewriting the same paragraph 47 times because "it's not quite right yet" and never moving forward
+                    Rewriting the same paragraph 47 times because &ldquo;it&apos;s not quite right yet&rdquo; and never moving forward
                   </p>
                 </div>
               </div>
@@ -332,7 +332,7 @@ export default function Home() {
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Write With Super Powers</h3>
                   <p className="text-gray-600 mb-3">
-                    Write in our distraction-free editor. When you're stuck, AI gives you the perfect next paragraph.
+                    Write in our distraction-free editor. When you&apos;re stuck, AI gives you the perfect next paragraph.
                   </p>
                   <div className="text-sm text-orange-600 font-semibold">
                     ⏱️ Write 3x faster with AI assistance
@@ -372,7 +372,7 @@ export default function Home() {
           <div className="text-center mt-16">
             <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 border-2 border-orange-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Transform Your Writing Process?</h3>
-              <p className="text-lg text-gray-600 mb-6">Join thousands of writers who've already discovered the faster way to finish their books.</p>
+              <p className="text-lg text-gray-600 mb-6">Join thousands of writers who&apos;ve already discovered the faster way to finish their books.</p>
               <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold py-4 px-8 rounded-xl hover:from-orange-600 hover:to-amber-600 transform hover:scale-105 transition-all duration-200 text-lg shadow-lg">
                 Join the Waitlist 
               </button>
@@ -408,7 +408,7 @@ export default function Home() {
                   </div>
                 </summary>
                 <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                  We're launching our private beta in <span className="font-semibold text-orange-600">March 2025</span>. Beta users get <span className="font-semibold">3 months free</span> and help shape the product's future with direct input on features and improvements.
+                  We&apos;re launching our private beta in <span className="font-semibold text-orange-600">March 2025</span>. Beta users get <span className="font-semibold">3 months free</span> and help shape the product&apos;s future with direct input on features and improvements.
                 </div>
               </details>
             </div>
@@ -472,7 +472,7 @@ export default function Home() {
                   </div>
                 </summary>
                 <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                  Most tools focus on just writing or just research. Bookify is the <span className="font-semibold text-orange-600">only platform</span> that combines intelligent research management, AI writing assistance, and professional book structuring in one place. It's like having a research assistant, writing coach, and book designer all in one.
+                  Most tools focus on just writing or just research. Bookify is the <span className="font-semibold text-orange-600">only platform</span> that combines intelligent research management, AI writing assistance, and professional book structuring in one place. It&apos;s like having a research assistant, writing coach, and book designer all in one.
                 </div>
               </details>
             </div>
@@ -488,7 +488,7 @@ export default function Home() {
                   </div>
                 </summary>
                 <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                  <span className="font-semibold text-orange-600">Your content is yours, always.</span> We use bank-level security, never share your work, and you can export everything at any time. We're here to help you succeed, not own your ideas.
+                  <span className="font-semibold text-orange-600">Your content is yours, always.</span> We use bank-level security, never share your work, and you can export everything at any time. We&apos;re here to help you succeed, not own your ideas.
                 </div>
               </details>
             </div>
@@ -504,7 +504,7 @@ export default function Home() {
                   </div>
                 </summary>
                 <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                  Not at all. If you can use email, you can use Bookify. We've designed every feature to be <span className="font-semibold">intuitive for writers</span>, not developers. Our interface is clean, simple, and focused on what matters: helping you write your book.
+                  Not at all. If you can use email, you can use Bookify. We&apos;ve designed every feature to be <span className="font-semibold">intuitive for writers</span>, not developers. Our interface is clean, simple, and focused on what matters: helping you write your book.
                 </div>
               </details>
             </div>
