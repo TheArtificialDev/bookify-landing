@@ -1,103 +1,660 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
+import { Waves } from '@/components/waves';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      // Here you would typically send the email to your backend
+      console.log('Email submitted:', email);
+      setIsSubmitted(true);
+    }
+  };
+
+  return (
+    <div className="relative min-h-screen bg-white">
+      {/* Global Waves Animation Background - covers entire website */}
+      <div className="fixed inset-0 z-0">
+        <Waves 
+          lineColor="rgba(251, 146, 60, 0.25)"
+          waveSpeedX={0.008}
+          waveSpeedY={0.003}
+          waveAmpX={24}
+          waveAmpY={12}
+          xGap={12}
+          yGap={28}
+          friction={0.93}
+          tension={0.004}
+          maxCursorMove={80}
+        />
+      </div>
+
+      {/* Hero Section */}
+      <div className="relative z-10 h-[100dvh] bg-white overflow-hidden">
+        {/* Hero Content */}
+        <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center py-8">
+          <div className="max-w-4xl mx-auto space-y-8">
+            {/* Primary Headline */}
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+              Write Your Non-Fiction Book{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">
+                5x Faster
+              </span>{' '}
+              Without the Overwhelm
+            </h1>
+
+            {/* Sub-Headline */}
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              We handle the research chaos, beat writer's block with AI, and structure your ideas into a professional book—so you can focus on what you do best:{' '}
+              <span className="font-semibold text-gray-800">sharing your knowledge with the world.</span>
+            </p>
+
+            {/* Inline CTA Form */}
+            {!isSubmitted ? (
+              <div className="space-y-4">
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 items-center justify-center max-w-lg mx-auto">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none text-lg transition-colors w-full sm:w-auto text-gray-900"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold py-3 px-8 rounded-xl hover:from-orange-600 hover:to-amber-600 transform hover:scale-105 transition-all duration-200 text-lg shadow-lg whitespace-nowrap"
+                  >
+                    Join the Waitlist
+                  </button>
+                </form>
+                <p className="text-sm text-gray-500">
+                  No spam, unsubscribe at any time
+                </p>
+              </div>
+            ) : (
+              <div className="text-center py-4">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">You're In!</h3>
+                <p className="text-gray-600">
+                  We'll notify you as soon as Bookify is ready.
+                </p>
+              </div>
+            )}
+
+            {/* Trust Indicators */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-500 text-sm">
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span>AI-Powered Writing</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span>Professional Structure</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span>No Overwhelm</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+
+      {/* All other sections with relative z-10 positioning */}
+      <div className="relative z-10">
+
+        {/* Problems Section */}
+        <section className="py-24 bg-white relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Why Smart People Struggle to Write Books
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                You're brilliant, but these common obstacles keep your knowledge trapped in your head
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Problem 1: Research Overwhelm */}
+              <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
+                {/* Animated background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start space-x-4 mb-4">
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-orange-100 to-amber-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <div className="text-2xl animate-bounce">📚</div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        Research Overwhelm
+                      </h3>
+                      <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
+                        <div className="bg-gradient-to-r from-orange-500 to-amber-500 h-2 rounded-full animate-pulse" style={{width: '85%'}}></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    You have 47 browser tabs open, 12 different research documents, and still feel like you haven't found "the perfect source"
+                  </p>
+                </div>
+              </div>
+
+              {/* Problem 2: Writing Blocks */}
+              <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
+                {/* Animated background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start space-x-4 mb-4">
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-orange-100 to-amber-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <div className="text-2xl">✍️</div>
+                      <div className="absolute top-1 right-1 w-1 h-4 bg-orange-500 animate-ping"></div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        Writing Blocks
+                      </h3>
+                      <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
+                        <div className="bg-gradient-to-r from-red-400 to-orange-400 h-2 rounded-full" style={{width: '15%'}}></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    Staring at a blank page for hours. You know what you want to say, but somehow it never comes out right
+                  </p>
+                </div>
+              </div>
+
+              {/* Problem 3: Scattered Notes */}
+              <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
+                {/* Animated background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start space-x-4 mb-4">
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-orange-100 to-amber-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative">
+                      <div className="text-2xl">📝</div>
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-bounce"></div>
+                      <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        Scattered Notes
+                      </h3>
+                      <div className="flex space-x-1 mb-3">
+                        <div className="flex-1 bg-yellow-200 rounded-full h-2 animate-pulse"></div>
+                        <div className="flex-1 bg-blue-200 rounded-full h-2 animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                        <div className="flex-1 bg-green-200 rounded-full h-2 animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    Ideas spread across sticky notes, random documents, voice memos, and 3 different note-taking apps
+                  </p>
+                </div>
+              </div>
+
+              {/* Problem 4: Perfectionism Paralysis */}
+              <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
+                {/* Animated background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start space-x-4 mb-4">
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-orange-100 to-amber-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <div className="text-2xl animate-spin" style={{animationDuration: '3s'}}>🔄</div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        Perfectionism Paralysis
+                      </h3>
+                      <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
+                        <div className="bg-gradient-to-r from-orange-500 to-amber-500 h-2 rounded-full animate-pulse" style={{width: '95%'}}></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    Rewriting the same paragraph 47 times because "it's not quite right yet" and never moving forward
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      {/* How It Works Section */}
+      <div className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Your Book Writing Journey, Simplified
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From chaos to published book in four simple steps
+            </p>
+          </div>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Progress Line */}
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-orange-200 via-amber-200 to-orange-300 transform -translate-y-1/2 rounded-full hidden lg:block"></div>
+            
+            {/* Steps */}
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-4">
+              {/* Step 1 */}
+              <div className="group relative">
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border-2 border-orange-100 hover:border-orange-300">
+                  {/* Step Number */}
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                    1
+                  </div>
+                  
+                  {/* Visual */}
+                  <div className="h-32 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
+                    <div className="text-4xl mb-2">📁</div>
+                    <div className="absolute top-2 left-2 w-6 h-1 bg-orange-300 rounded animate-bounce"></div>
+                    <div className="absolute top-4 right-3 w-4 h-1 bg-orange-300 rounded animate-bounce" style={{animationDelay: '0.5s'}}></div>
+                    <div className="absolute bottom-3 left-3 w-8 h-1 bg-orange-300 rounded animate-bounce" style={{animationDelay: '1s'}}></div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Dump Everything In</h3>
+                  <p className="text-gray-600 mb-3">
+                    Import all your research—articles, videos, PDFs, notes. We organize it instantly.
+                  </p>
+                  <div className="text-sm text-orange-600 font-semibold">
+                    ⏱️ 5 minutes to set up your research library
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="group relative">
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border-2 border-orange-100 hover:border-orange-300">
+                  {/* Step Number */}
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                    2
+                  </div>
+                  
+                  {/* Visual */}
+                  <div className="h-32 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
+                    <div className="text-4xl mb-2">🧠</div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 border-2 border-orange-300 rounded-full animate-pulse opacity-50"></div>
+                      <div className="absolute w-12 h-12 border-2 border-amber-400 rounded-full animate-pulse opacity-75" style={{animationDelay: '0.5s'}}></div>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">AI Maps Your Book</h3>
+                  <p className="text-gray-600 mb-3">
+                    Tell us your book idea. Our AI creates a complete chapter outline tailored to your expertise.
+                  </p>
+                  <div className="text-sm text-orange-600 font-semibold">
+                    ⏱️ 10 minutes to get your entire book structure
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="group relative">
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border-2 border-orange-100 hover:border-orange-300">
+                  {/* Step Number */}
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                    3
+                  </div>
+                  
+                  {/* Visual */}
+                  <div className="h-32 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
+                    <div className="text-4xl mb-2">✍️</div>
+                    <div className="absolute top-2 left-4 w-0.5 h-4 bg-orange-400 animate-pulse"></div>
+                    <div className="absolute top-6 left-6 w-8 h-0.5 bg-orange-300 rounded"></div>
+                    <div className="absolute top-8 left-6 w-6 h-0.5 bg-orange-300 rounded"></div>
+                    <div className="absolute bottom-4 right-4 text-xs text-orange-500 animate-pulse">AI suggests...</div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Write With Super Powers</h3>
+                  <p className="text-gray-600 mb-3">
+                    Write in our distraction-free editor. When you're stuck, AI gives you the perfect next paragraph.
+                  </p>
+                  <div className="text-sm text-orange-600 font-semibold">
+                    ⏱️ Write 3x faster with AI assistance
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 4 */}
+              <div className="group relative">
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border-2 border-orange-100 hover:border-orange-300">
+                  {/* Step Number */}
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                    4
+                  </div>
+                  
+                  {/* Visual */}
+                  <div className="h-32 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
+                    <div className="text-4xl mb-2 transform group-hover:scale-110 transition-transform duration-300">🚀</div>
+                    <div className="absolute top-4 left-4 w-2 h-2 bg-orange-400 rounded-full animate-ping"></div>
+                    <div className="absolute bottom-6 right-6 w-3 h-3 bg-amber-400 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+                    <div className="absolute top-6 right-4 w-1 h-1 bg-orange-500 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Export and Publish</h3>
+                  <p className="text-gray-600 mb-3">
+                    One-click export to professional formats. Ready for Amazon, publishers, or sharing.
+                  </p>
+                  <div className="text-sm text-orange-600 font-semibold">
+                    ⏱️ From final draft to published in minutes
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-16">
+            <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 border-2 border-orange-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Transform Your Writing Process?</h3>
+              <p className="text-lg text-gray-600 mb-6">Join thousands of writers who've already discovered the faster way to finish their books.</p>
+              <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold py-4 px-8 rounded-xl hover:from-orange-600 hover:to-amber-600 transform hover:scale-105 transition-all duration-200 text-lg shadow-lg">
+                Join the Waitlist 
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Everything You Want to Know About Bookify
+            </h2>
+            <p className="text-xl text-gray-600">
+              Get answers to the most common questions about our book writing platform
+            </p>
+          </div>
+
+          {/* FAQ Items */}
+          <div className="space-y-4">
+            {/* Technical Questions */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <details className="group">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-orange-50 transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900">When will Bookify be available?</h3>
+                  <div className="ml-4 transform group-open:rotate-180 transition-transform duration-200">
+                    <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  We're launching our private beta in <span className="font-semibold text-orange-600">March 2025</span>. Beta users get <span className="font-semibold">3 months free</span> and help shape the product's future with direct input on features and improvements.
+                </div>
+              </details>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <details className="group">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-orange-50 transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900">What file formats does Bookify support?</h3>
+                  <div className="ml-4 transform group-open:rotate-180 transition-transform duration-200">
+                    <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  Import from anywhere: <span className="font-semibold">web articles</span> (just paste the URL), <span className="font-semibold">PDFs</span>, <span className="font-semibold">Word docs</span>, <span className="font-semibold">YouTube videos</span> (we extract transcripts), <span className="font-semibold">images</span> (with text extraction), and direct note-taking. We automatically organize everything for you.
+                </div>
+              </details>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <details className="group">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-orange-50 transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900">How does the AI understand my writing style?</h3>
+                  <div className="ml-4 transform group-open:rotate-180 transition-transform duration-200">
+                    <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  Our AI learns from your existing content and adapts to your <span className="font-semibold">tone</span>, <span className="font-semibold">expertise level</span>, and <span className="font-semibold">preferred structure</span>. The more you write, the better it gets at helping you maintain consistency and flow throughout your book.
+                </div>
+              </details>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <details className="group">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-orange-50 transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900">Can I export my book to different formats?</h3>
+                  <div className="ml-4 transform group-open:rotate-180 transition-transform duration-200">
+                    <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  Yes! Export to <span className="font-semibold">Word</span>, <span className="font-semibold">PDF</span>, <span className="font-semibold">EPUB</span>, or <span className="font-semibold">HTML</span>. We format everything professionally so you can upload directly to <span className="font-semibold text-orange-600">Amazon KDP</span>, send to publishers, or share digitally.
+                </div>
+              </details>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <details className="group">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-orange-50 transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900">How is this different from other writing tools?</h3>
+                  <div className="ml-4 transform group-open:rotate-180 transition-transform duration-200">
+                    <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  Most tools focus on just writing or just research. Bookify is the <span className="font-semibold text-orange-600">only platform</span> that combines intelligent research management, AI writing assistance, and professional book structuring in one place. It's like having a research assistant, writing coach, and book designer all in one.
+                </div>
+              </details>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <details className="group">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-orange-50 transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900">What happens to my content and research?</h3>
+                  <div className="ml-4 transform group-open:rotate-180 transition-transform duration-200">
+                    <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  <span className="font-semibold text-orange-600">Your content is yours, always.</span> We use bank-level security, never share your work, and you can export everything at any time. We're here to help you succeed, not own your ideas.
+                </div>
+              </details>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <details className="group">
+                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-orange-50 transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900">Do I need to be tech-savvy to use Bookify?</h3>
+                  <div className="ml-4 transform group-open:rotate-180 transition-transform duration-200">
+                    <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  Not at all. If you can use email, you can use Bookify. We've designed every feature to be <span className="font-semibold">intuitive for writers</span>, not developers. Our interface is clean, simple, and focused on what matters: helping you write your book.
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Final CTA Section */}
+      <div className="py-20 bg-gradient-to-br from-orange-500 via-amber-500 to-orange-600 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-32 h-32 border border-white rounded-full animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-24 h-24 border border-white rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-white rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+          {/* Header */}
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              Ready to Write Your Book the Smart Way?
+            </h2>
+            <p className="text-xl md:text-2xl text-orange-100 max-w-3xl mx-auto">
+              Join writers who are finishing books faster and with less stress
+            </p>
+          </div>
+
+          {/* Signup Form */}
+          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 max-w-2xl mx-auto">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none text-lg text-gray-900 transition-colors"
+                    required
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none text-lg text-gray-900 transition-colors"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <input
+                  type="text"
+                  placeholder="What's your book about? (optional)"
+                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none text-lg text-gray-900 transition-colors"
+                />
+              </div>
+
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="privacy"
+                  className="mt-1 w-5 h-5 text-orange-500 border-2 border-gray-300 rounded focus:ring-orange-500"
+                  required
+                />
+                <label htmlFor="privacy" className="text-sm text-gray-600 leading-relaxed">
+                  I agree to receive updates about Bookify and understand I can unsubscribe at any time
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold py-5 px-8 rounded-xl hover:from-orange-600 hover:to-amber-600 transform hover:scale-105 transition-all duration-200 text-xl shadow-lg"
+              >
+                Get Beta Access
+              </button>
+            </form>
+
+            {/* Trust Elements */}
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <p className="text-sm text-gray-500 mb-4">Free for first 100 writers • No credit card • Cancel anytime</p>
+              
+              <div className="flex flex-wrap justify-center gap-6 text-sm">
+                <div className="flex items-center gap-2 text-gray-600">
+                  <span className="text-lg">🔒</span>
+                  <span>Your ideas stay private</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-600">
+                  <span className="text-lg">✨</span>
+                  <span>3 months free beta access</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-600">
+                  <span className="text-lg">🚀</span>
+                  <span>Help shape the future of writing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Proof */}
+          <div className="mt-12 text-center">
+            <p className="text-orange-100 text-lg">
+              Join <span className="font-bold text-white">500+ writers</span> already on the waitlist
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            {/* Logo and Tagline */}
+            <div>
+              <h3 className="text-2xl font-bold text-orange-400 mb-2">Bookify</h3>
+              <p className="text-gray-400">Write Smarter, Publish Faster</p>
+            </div>
+
+            {/* Links */}
+            <div className="flex flex-wrap justify-center gap-6">
+              <a href="#privacy" className="text-gray-400 hover:text-orange-400 transition-colors">Privacy Policy</a>
+              <a href="#terms" className="text-gray-400 hover:text-orange-400 transition-colors">Terms of Service</a>
+              <a href="#contact" className="text-gray-400 hover:text-orange-400 transition-colors">Contact</a>
+            </div>
+
+            {/* Contact and Social */}
+            <div className="text-center md:text-right">
+              <p className="text-gray-400 mb-2">hello@bookify.app</p>
+              <div className="flex justify-center md:justify-end gap-4">
+                <a href="#twitter" className="text-gray-400 hover:text-orange-400 transition-colors">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                  </svg>
+                </a>
+                <a href="#linkedin" className="text-gray-400 hover:text-orange-400 transition-colors">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+            <p className="text-gray-500 text-sm">
+              © 2025 Bookify. All rights reserved. Made with ❤️ for writers who want to change the world.
+            </p>
+          </div>
+        </div>
       </footer>
+      </div>
     </div>
   );
 }
