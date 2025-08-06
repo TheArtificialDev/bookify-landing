@@ -302,8 +302,20 @@ export function Waves({
       updateMouse(e.pageX, e.pageY)
     }
     function onTouchMove(e: TouchEvent) {
-      e.preventDefault()
+      // Only prevent default if we're actually interacting with the canvas
       const touch = e.touches[0]
+      const canvas = canvasRef.current
+      if (!canvas) return
+      
+      const rect = canvas.getBoundingClientRect()
+      const isOverCanvas = touch.clientX >= rect.left && 
+                          touch.clientX <= rect.right && 
+                          touch.clientY >= rect.top && 
+                          touch.clientY <= rect.bottom
+      
+      if (isOverCanvas) {
+        e.preventDefault()
+      }
       updateMouse(touch.clientX, touch.clientY)
     }
     function updateMouse(x: number, y: number) {
