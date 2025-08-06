@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bookify.app/sitemap.xml
+Sitemap: https://bookify.thekp.in/sitemap.xml

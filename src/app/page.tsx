@@ -41,16 +41,16 @@ export default function Home() {
           <div className="max-w-4xl mx-auto space-y-8">
             {/* Primary Headline */}
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-              Write Your Non-Fiction Book{' '}
+              AI Book Writing Software:{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">
-                5x Faster
+                Write Books 5x Faster
               </span>{' '}
-              Without the Overwhelm
+              with Smart Editor
             </h1>
 
             {/* Sub-Headline */}
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We handle the research chaos, beat writer&apos;s block with AI, and structure your ideas into a professional book—so you can focus on what you do best:{' '}
+              The most advanced book writing software and AI editor for non-fiction authors. Handle research chaos, beat writer&apos;s block with AI assistance, and structure your ideas into a professional book—so you can focus on what you do best:{' '}
               <span className="font-semibold text-gray-800">sharing your knowledge with the world.</span>
             </p>
 
@@ -97,19 +97,19 @@ export default function Home() {
                 <svg className="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>AI-Powered Writing</span>
+                <span>AI Book Editor</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>Professional Structure</span>
+                <span>Professional Manuscript Editor</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>No Overwhelm</span>
+                <span>Book Authoring Tools</span>
               </div>
             </div>
           </div>
@@ -124,10 +124,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Why Smart People Struggle to Write Books
+                Why Authors Need Professional Book Writing Software
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                You&apos;re brilliant, but these common obstacles keep your knowledge trapped in your head
+                Even brilliant writers struggle without the right book authoring tools and manuscript editor
               </p>
             </div>
             
@@ -246,10 +246,10 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Your Book Writing Journey, Simplified
+              How Our Book Writing Software Works
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From chaos to published book in four simple steps
+              From research chaos to published book in four simple steps with our AI book editor
             </p>
           </div>
 
@@ -381,16 +381,100 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Benefits Section - SEO Optimized */}
+      <div className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Why Choose Bookify as Your Book Writing Software?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Compare our AI book editor with traditional writing tools and manuscript software
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Benefit 1 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="text-3xl mb-4">🤖</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">AI-Powered Writing Assistant</h3>
+              <p className="text-gray-600">
+                Unlike basic word processors, our AI book editor provides intelligent suggestions, helps overcome writer&apos;s block, and maintains your unique voice throughout your manuscript.
+              </p>
+            </div>
+
+            {/* Benefit 2 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="text-3xl mb-4">📚</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Smart Research Management</h3>
+              <p className="text-gray-600">
+                Organize sources, citations, and research notes automatically. Our book authoring software keeps everything connected to your writing, unlike scattered documents in traditional editors.
+              </p>
+            </div>
+
+            {/* Benefit 3 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="text-3xl mb-4">📖</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Professional Book Formatting</h3>
+              <p className="text-gray-600">
+                Export your finished manuscript in professional formats ready for publishers. No need for separate formatting software or complex layout tools.
+              </p>
+            </div>
+          </div>
+
+          {/* Comparison Table */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              Bookify vs Traditional Writing Software
+            </h3>
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+                <div className="p-6">
+                  <h4 className="font-bold text-gray-900 mb-4">Traditional Word Processors</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>❌ No AI assistance</li>
+                    <li>❌ Manual research organization</li>
+                    <li>❌ Basic formatting options</li>
+                    <li>❌ No structure guidance</li>
+                    <li>❌ Limited collaboration</li>
+                  </ul>
+                </div>
+                <div className="p-6 bg-orange-50">
+                  <h4 className="font-bold text-orange-600 mb-4">Bookify Book Editor</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>✅ AI writing assistant</li>
+                    <li>✅ Smart research management</li>
+                    <li>✅ Professional book formatting</li>
+                    <li>✅ Chapter structure templates</li>
+                    <li>✅ Real-time collaboration</li>
+                  </ul>
+                </div>
+                <div className="p-6">
+                  <h4 className="font-bold text-gray-900 mb-4">Other Writing Apps</h4>
+                  <ul className="space-y-2 text-gray-600">
+                    <li>⚠️ Limited AI features</li>
+                    <li>⚠️ Basic organization</li>
+                    <li>⚠️ Generic templates</li>
+                    <li>⚠️ Manual exports</li>
+                    <li>⚠️ High learning curve</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* FAQ Section */}
       <div className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Everything You Want to Know About Bookify
+              Frequently Asked Questions About Book Writing Software
             </h2>
             <p className="text-xl text-gray-600">
-              Get answers to the most common questions about our book writing platform
+              Common questions about our AI-powered book editor and writing platform
             </p>
           </div>
 
@@ -400,7 +484,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <details className="group">
                 <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-orange-50 transition-colors duration-200">
-                  <h3 className="text-lg font-semibold text-gray-900">When will Bookify be available?</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">When will this book writing software be available?</h3>
                   <div className="ml-4 transform group-open:rotate-180 transition-transform duration-200">
                     <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -432,7 +516,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <details className="group">
                 <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-orange-50 transition-colors duration-200">
-                  <h3 className="text-lg font-semibold text-gray-900">How does the AI understand my writing style?</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">How does AI book writing software learn my writing style?</h3>
                   <div className="ml-4 transform group-open:rotate-180 transition-transform duration-200">
                     <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -647,10 +731,50 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-            <p className="text-gray-500 text-sm">
-              © 2025 Bookify. All rights reserved. Made with ❤️ for writers who want to change the world.
-            </p>
+          <div className="border-t border-gray-800 mt-8 pt-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              {/* SEO Content Column 1 */}
+              <div>
+                <h4 className="text-white font-semibold mb-4">Book Writing Software</h4>
+                <ul className="text-gray-400 text-sm space-y-2">
+                  <li>AI Book Editor</li>
+                  <li>Manuscript Writing Tool</li>
+                  <li>Book Authoring Platform</li>
+                  <li>Digital Book Creator</li>
+                </ul>
+              </div>
+              
+              {/* SEO Content Column 2 */}
+              <div>
+                <h4 className="text-white font-semibold mb-4">Writing Tools</h4>
+                <ul className="text-gray-400 text-sm space-y-2">
+                  <li>Research Management</li>
+                  <li>Chapter Structure Templates</li>
+                  <li>Export to Publishers</li>
+                  <li>Collaborative Writing</li>
+                </ul>
+              </div>
+              
+              {/* SEO Content Column 3 */}
+              <div>
+                <h4 className="text-white font-semibold mb-4">For Authors</h4>
+                <ul className="text-gray-400 text-sm space-y-2">
+                  <li>Non-Fiction Writers</li>
+                  <li>Business Book Authors</li>
+                  <li>Academic Writers</li>
+                  <li>Self-Publishing Authors</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="text-center border-t border-gray-800 pt-8">
+              <p className="text-gray-500 text-sm mb-2">
+                © 2025 Bookify - Professional Book Writing Software &amp; AI Editor. All rights reserved.
+              </p>
+              <p className="text-gray-600 text-xs">
+                The best AI-powered book writing software for non-fiction authors. Write, edit, and publish your book faster.
+              </p>
+            </div>
           </div>
         </div>
       </footer>
